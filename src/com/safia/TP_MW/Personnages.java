@@ -18,11 +18,10 @@ public abstract class Personnages {
     }
 
     public void setAdversaire(Personnages adversaire) { this.adversaire = adversaire; }
-    public String getAdversaire(Personnages adversaire) { return num; }
 
     protected abstract void sort (int choix);
     //Le joueur courrant pourra utiliser la methode sors se trouvant dans les classes Classes
-    public void PersonnageCourant() {
+    public void PersonnageActif() {
         int choix = 0;
         if (vie > 0) {
             do {
@@ -39,8 +38,8 @@ public abstract class Personnages {
 
     //Methode d'intro du joueur
     public String toString() {
-        return  "\n"+cri + "Je suis le "+ classe+" "+num +" niveau "+ niveau + " je possède "+ vie + " de vitalité, "+ force+
-                " de force "+ agilite+ " d'agilité et "+ intelligence+ " d'intelligence !";
+        return  cri + "Je suis le "+ classe+" "+num +", de  niveau "+ niveau + " , je possède "+ vie + " de vitalité, "+ force+
+                " de force, "+ agilite+ " d'agilité et "+ intelligence+ " d'intelligence !\n";
     }
 
 }

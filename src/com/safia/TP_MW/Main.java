@@ -25,11 +25,12 @@ public class Main {
         System.out.println(joueur2.toString());
         joueur1.setAdversaire(joueur2);
         joueur2.setAdversaire(joueur1);
-        //TODO ajouter tant que l'adversaire n'est pas mort
         do {
-            joueur1.PersonnageCourant();
-            joueur2.PersonnageCourant();
-        }while (joueur1.vie>=0 || joueur2.vie >=0);
+            joueur1.PersonnageActif();
+            joueur2.PersonnageActif();
+            if (joueur1.vie<=0|| joueur2.vie <=0)
+                break;
+        }while (joueur1.vie>=0|| joueur2.vie >=0);
     }
 
     public static Personnages creationJoueur(int numJoueur) throws Exception {
