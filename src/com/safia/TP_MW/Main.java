@@ -26,40 +26,39 @@ public class Main {
         joueur1.setAdversaire(joueur2);
         joueur2.setAdversaire(joueur1);
         //TODO ajouter tant que l'adversaire n'est pas mort
-        //TODO afficher la vie restante des joueurs après chaque tours
-        joueur1.PersonnageCourant();
-        joueur2.PersonnageCourant();
+        do {
+            joueur1.PersonnageCourant();
+            joueur2.PersonnageCourant();
+        }while (joueur1.vie>=0 || joueur2.vie >=0);
     }
 
     public static Personnages creationJoueur(int numJoueur) throws Exception {
         Personnages j;
         int classe, niveau, force, agilite, intelligence;
         System.out.println("\nCréation du personnage du Joueur " + numJoueur);
-        classe = askQuestion("Choississez votre classe ( 1 : Guerrier - 2 : Rodeur - 3 : Mage) :");
-        do {
+        do { classe = askQuestion("Choississez votre classe ( 1 : Guerrier - 2 : Rodeur - 3 : Mage) :");
+            if (classe != 1 && classe !=2 && classe !=3)System.out.println("Classe non existante ! Veuillez réessayer");
+        }while(classe != 1 && classe !=2 && classe !=3);
+            do {
             niveau = askQuestion("Niveau du personnage :");
             force = askQuestion("Force du personnage :");
             agilite = askQuestion("Agilité du personnage :");
             intelligence = askQuestion("Intelligence du personnage :");
+            if (force + agilite + intelligence != niveau)
+                System.out.println("\nAttention, le niveau doit être égal à la sommes des caracteristiques force, agilité et intelligence.\nVeuillez réessayer /");
         } while (force + agilite + intelligence != niveau);
-            switch (classe) {
-            case 1:
-                j = new Guerrier(numJoueur,force,agilite,intelligence);
-                break;
-            case 2:
-                j = new Rodeur(numJoueur,force,agilite,intelligence);
-                break;
-            case 3:
-                j = new Mage(numJoueur,force,agilite,intelligence);
-                break;
-            default:
-                throw new Exception("Classe non existante.");
-        }
-        if (force + agilite + intelligence != niveau){
-            System.out.println("\nAttention, le niveau doit être égal à la sommes des caracteristiques force, agilité et intelligence.\n Veuillez réessayer");
-        }
-
-
+             switch (classe) {
+                 case 1:
+                     j = new Guerrier(numJoueur, force, agilite, intelligence);
+                     break;
+                 case 2:
+                     j = new Rodeur(numJoueur, force, agilite, intelligence);
+                     break;
+                 case 3:
+                     j = new Mage(numJoueur, force, agilite, intelligence);
+                     break;
+                 default:
+                     throw new Exception("Classe non existante."); }
         return j;
     }
 

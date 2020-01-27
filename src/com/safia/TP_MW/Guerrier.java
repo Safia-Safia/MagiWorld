@@ -13,19 +13,20 @@ public class Guerrier extends Personnages {
 
     @Override
     protected void sort(int choix) {
-        Scanner sc = new Scanner (System.in);
         String narrateur = "";
         switch (choix){
             case 1:
                 adversaire.enleverVie(force);
-                narrateur= num + " utilise Coup d'épée et inflige " + force + " de dégâts";
+                narrateur= num + " utilise Coup d'épée et inflige " + force + " de dégâts !";
                 System.out.print(narrateur);
+                System.out.println("\n"+ adversaire.num + " perd "+ force + " point de vie.");
                 break;
             case 2:
                 adversaire.enleverVie(force * 2);
                 vie -= force / 2;
-                narrateur =  num + " utilise Coup de rage, inflige " + (force * 2) + " de dégâts et perd " + (force / 2) + " de vitalité";
+                narrateur =  num + " utilise Coup de rage, inflige " + (force * 2) + " de dégâts !";
                 System.out.print(narrateur);
+                System.out.println("\n"+ adversaire.num + " perd "+ (force*2) + " point de vie.");
                 break;
         }
 

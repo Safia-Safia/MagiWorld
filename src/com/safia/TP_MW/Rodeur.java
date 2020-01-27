@@ -18,13 +18,13 @@ public class Rodeur extends Personnages{
         switch (choix){
             case 1:
                 adversaire.enleverVie(agilite);
-                narrateur= num + " utilise Tire à l'Arc et inflige " + agilite + " de dégâts";
+                narrateur= num + " utilise Tire à l'Arc et inflige " + agilite + " de dégâts !";
                 System.out.print(narrateur);
+                System.out.println("\n"+ adversaire.num + " perd "+ agilite + " point de vie.");
                 break;
             case 2:
-                adversaire.enleverVie(force*2);
-                vie += (niveau/2);
-                narrateur =  num + " utilise Coup de rage, inflige " + (force * 2) + " de dégâts et perd " + (force / 2) + " de vitalité";
+                agilite+=(niveau/2);
+                narrateur =  num + " utilise concentration et gagne "+ (agilite / 2) + " en agilité !\n";
                 System.out.print(narrateur);
                 break;
         }

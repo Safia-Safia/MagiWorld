@@ -16,15 +16,16 @@ public class Mage extends Personnages {
         String narrateur = "";
         switch (choix){
             case 1:
-                adversaire.enleverVie(intelligence);
-                narrateur= num + " utilise Boule de Feu et inflige " + intelligence + " de dégâts";
+                narrateur= num + " utilise Boule de feu et inflige " + intelligence + " de dégâts !";
                 System.out.print(narrateur);
+                System.out.println(adversaire.num+ " perd "+ intelligence + " point de vie.");
+                adversaire.enleverVie(intelligence);
                 break;
             case 2:
                 do {
                     vie += (intelligence * 2);
                 }while (intelligence>vie);
-                narrateur =  num + " utilise Coup de rage, inflige " + (force * 2) + " de dégâts et perd " + (force / 2) + " de vitalité";
+                narrateur =  num + " utilise Soin et regagne " + (intelligence * 2) + " de vitalité !\n";
                 System.out.print(narrateur);
                 break;
 
