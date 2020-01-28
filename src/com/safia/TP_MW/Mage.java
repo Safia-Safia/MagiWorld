@@ -21,13 +21,13 @@ public class Mage extends Personnages {
                 System.out.println("\n"+adversaire.num+ " perd "+ intelligence + " point de vie.");
                 adversaire.enleverVie(intelligence);
                 break;
-            case 2:
-                do {
+            case 2: //Soin
+                if ((intelligence*2)+vie > vieMax){
+                    System.out.println("Vous ne pouvez pas avoir plus de vie qu'initialement ! Passez votre tour !");}
+                else{
                     vie += (intelligence * 2);
-                    if (vie > vieMax)System.out.println("Vous ne pouvez pas avoir plus de vie qu'initialement !");
-                } while (vie<vieMax);
-                narrateur =  num + " utilise Soin et regagne " + (intelligence*2)+ " de vitalité !\n";
-                System.out.print(narrateur);
+                    narrateur =  num + " utilise Soin et regagne " + (intelligence*2)+ " de vitalité !\n";
+                    System.out.print(narrateur);}
                 break;
 
         }

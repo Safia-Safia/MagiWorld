@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         int numJoueur=1;
+        Personnages advs = null;
         Personnages joueur1 = null;
         try {
             joueur1 = creationJoueur(numJoueur);
@@ -29,7 +30,7 @@ public class Main {
             joueur1.PersonnageActif();
             joueur2.PersonnageActif();
             if (joueur1.vie<=0|| joueur2.vie <=0)
-                break;
+            break;
         }while (joueur1.vie>=0|| joueur2.vie >=0);
     }
 
@@ -73,7 +74,5 @@ public class Main {
         }catch (InputMismatchException e){
             System.out.println("Veillez à uniquement saisir des chiffres ! Veuillez réessayer");}
         return choixCreation;
-
     }
-
 }

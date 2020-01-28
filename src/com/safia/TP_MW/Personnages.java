@@ -18,20 +18,22 @@ public abstract class Personnages {
     }
 
     public void setAdversaire(Personnages adversaire) { this.adversaire = adversaire; }
+    public Personnages getAdversaire() { return adversaire; }
 
     protected abstract void sort (int choix);
     //Le joueur courrant pourra utiliser la methode sors se trouvant dans les classes Classes
     public void PersonnageActif() {
         int choix = 0;
-        if (vie > 0) {
+        if (vie >= 0) {
             do {
                 choix =Main.askQuestion(num + " ( " + vie + " de vitalité.) Veuilliez choisir votre action (1 : Attaque Basique   2 : Attaque Speciale)");
             }while (choix != 1 && choix != 2);
             this.sort(choix);
         } else {
-            System.out.println("\nLe" + adversaire.num+ " est mort...");
+            System.out.println("\nLe " + adversaire.num+ " est mort...");
             System.out.println("Le " + num+ " a gagné !");}
     }
+
 
    //Methode qui retire la vie
     protected void enleverVie(int vieAEnlever) { vie-= vieAEnlever; }
