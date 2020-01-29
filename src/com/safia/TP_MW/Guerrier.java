@@ -23,7 +23,7 @@ public class Guerrier extends Personnages {
                 break;
             case 2:
                 adversaire.enleverVie(force * 2);
-                vie -= force / 2;
+                vie -= (force / 2);
                 narrateur =  num + " utilise Coup de rage, inflige " + (force * 2) + " de dégâts et perd "+ (force/2)+ " points de vie !";
                 System.out.print(narrateur);
                 System.out.println("\n"+adversaire.num + " perd "+ (force*2) + " point de vie.");

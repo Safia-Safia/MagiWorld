@@ -47,7 +47,7 @@ public class Main {
             agilite = askQuestion("Agilité du personnage :");
             intelligence = askQuestion("Intelligence du personnage :");
             if (force + agilite + intelligence != niveau)
-                System.out.println("\nAttention, le niveau doit être égal à la sommes des caracteristiques force, agilité et intelligence.\nVeuillez réessayer /");
+                System.out.println("\nAttention, le niveau doit être égal à la sommes des caracteristiques force, agilité et intelligence.\nVeuillez réessayer :");
         } while (force + agilite + intelligence != niveau);
              switch (classe) {
                  case 1:
@@ -67,12 +67,17 @@ public class Main {
     public static int askQuestion(String question) {
         int choixCreation = 0;
         Scanner sc = new Scanner(System.in);
-        //TODO saisir tant que ce n'est pas valide
-        try {
-            System.out.println(question);
-            choixCreation=sc.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("Veillez à uniquement saisir des chiffres ! Veuillez réessayer");}
+        boolean hasError= true;
+       do{
+           try {
+               System.out.println(question);
+               choixCreation=sc.nextInt();
+               hasError=false;
+           }catch (InputMismatchException e){
+               System.out.println("Veillez à uniquement saisir des chiffres ! Veuillez réessayer :");
+           }
+            sc.nextLine();
+       }while(hasError);
         return choixCreation;
     }
 }

@@ -29,9 +29,8 @@ public abstract class Personnages {
                 choix =Main.askQuestion(num + " ( " + vie + " de vitalité.) Veuilliez choisir votre action (1 : Attaque Basique   2 : Attaque Speciale)");
             }while (choix != 1 && choix != 2);
             this.sort(choix);
-        } else {
-            System.out.println("\nLe " + adversaire.num+ " est mort...");
-            System.out.println("Le " + num+ " a gagné !");}
+        } else { if(vie <=0)
+            System.out.println("\nLe " + adversaire.num+ " est mort..."+"\n"+"Le " + num+ " a gagné !"+"\n\t Fin de la partie.");}
     }
 
 
