@@ -16,7 +16,6 @@ public class Main {
         }
         System.out.println(joueur1.toString());
         numJoueur ++;
-        int numJoueur2=2;
         Personnages joueur2 = null;
         try {
             joueur2 = creationJoueur(numJoueur);
@@ -27,11 +26,14 @@ public class Main {
         joueur1.setAdversaire(joueur2);
         joueur2.setAdversaire(joueur1);
         do {
-            joueur1.PersonnageActif();
-            joueur2.PersonnageActif();
-            if (joueur1.vie<=0|| joueur2.vie <=0)
-            break;
-        }while (joueur1.vie>=0|| joueur2.vie >=0);
+            joueur1.joueurActif();
+            joueur2.joueurActif();
+        }while (joueur1.vie>=0 && joueur2.vie >=0);
+        if (joueur1.vie>0) {
+            System.out.println("\nLe " + joueur1.adversaire.num+ " est mort..."+"\n"+"Le " + joueur1.num+ " a gagné !"+"\n\t Fin de la partie.");
+        }else {
+            System.out.println("\nLe " + joueur2.adversaire.num+ " est mort..."+"\n"+"Le " + joueur2.num+ " a gagné !"+"\n\t Fin de la partie.");
+        }
     }
 
     public static Personnages creationJoueur(int numJoueur) throws Exception {
@@ -41,7 +43,7 @@ public class Main {
         do { classe = askQuestion("Choississez votre classe ( 1 : Guerrier - 2 : Rodeur - 3 : Mage) :");
             if (classe != 1 && classe !=2 && classe !=3)System.out.println("Classe non existante ! Veuillez réessayer");
         }while(classe != 1 && classe !=2 && classe !=3);
-            do {
+        do {
             niveau = askQuestion("Niveau du personnage :");
             force = askQuestion("Force du personnage :");
             agilite = askQuestion("Agilité du personnage :");
